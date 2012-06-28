@@ -1,0 +1,74 @@
+ .jist-control-list {
+ 	clear: both;
+	margin: 0;
+	padding: 0;
+}
+.jist-control-list-item  {
+	float: left;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.jist-control-list.jist-vertical .jist-control-list-item {
+	clear:both;
+}
+.jist-control-state-flag {/*use render off screen for state by default for buttons etc (background-images used instead for aesthetics)- menus will be different*/
+	position: absolute;
+	margin-left: -1000em;
+	/*TODO: set this margin to 0 in ie6/7 no js*/
+}
+.jist-control,
+.jist-control-input { /*this removes the default styling for buttons and inputs and does a bit of 'normalisation'*/
+	background-color: transparent;
+	border-width: 0;
+	text-align: center;
+	padding: 0; 
+	margin: 0;
+}
+/*remove default padding and margins on IE controls*/
+* html a.jist-control-item {
+	display: block;
+	padding: 0.25ex 0ex 0.25ex 0ex; /*horrible little IE box model fix, TODO (try and eradicate this (yeah right)*/
+}
+* html button.jist-control,
+* html input.jist-control-input{
+	width: 0;
+	overflow: visible;
+}
+*+html button.jist-control,
+*+html input.jist-control-input{
+	width: auto;
+	overflow: visible;
+}
+.jist-control-list button.jist-active{
+        position: relative;
+        left: -1px;
+        top: -1px;
+}
+/* end IE*/
+
+.jist-control-item,
+.jist-control-item:active,
+.jist-control-item:visited,
+.jist-control-item:link,
+.jist-control-input,
+.jist-control
+{/*get rid of default anchor/button/input colors (and make them consistent (ish)*/
+	color: inherit;
+    color: infotext;
+	text-decoration: none;
+}
+.jist-control-access-key {/*if you use accesskeys in ems get rid of the italic and stick the underline on*/
+	text-decoration: underline;
+	font-style: normal;
+}
+a.jist-control-item,
+a.jist-control-item:active,
+a.jist-control-item:hover,
+a.jist-control-item:focus,
+.jist-control {/*remove dots wherever poss in anchors etc - no joy in old IEs of course (blur/focus javascript if you must)*/
+	outline: 0;
+}
+
+
+
