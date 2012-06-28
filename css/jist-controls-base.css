@@ -1,5 +1,4 @@
  .jist-control-list {
- 	clear: both;
 	margin: 0;
 	padding: 0;
 }
@@ -9,11 +8,18 @@
 	margin: 0;
 	padding: 0;
 }
+/*for vertical toolbars*/
 .jist-control-list.jist-vertical .jist-control-list-item {
 	clear:both;
 }
 .jist-control-wrapper {
 	float:left;
+	position: relative;
+	display: block;
+}
+.jist-control-item,.jist-control-text,.jist-control {
+	display: block;
+	float: left;
 }
 .jist-control-state-flag {/*use render off screen for state by default for buttons etc (background-images used instead for aesthetics)- menus will be different*/
 	position: absolute;
@@ -28,15 +34,16 @@
 	padding: 0; 
 	margin: 0;
 }
-
+.jist-control-text {
+	padding: 0.1em 0.4em;
+}
+.jist-control-input {
+	padding: 0.1em 0.4em;
+}
 .jist-control-item { /*fixes IE6/7 lineheight inconsistencies*/
 	*line-height: 1.5em;
 }
 /*remove default padding and margins on IE controls*/
-* html a.jist-control-item {
-	display: block;
-
-}
 * html button.jist-control,
 * html input.jist-control-input{
 	width: 0;
@@ -78,6 +85,23 @@ a.jist-control-item:hover,
 a.jist-control-item:focus,
 .jist-control {/*remove dots wherever poss in anchors etc - no joy in old IEs of course (blur/focus javascript if you must)*/
 	outline: 0;
+}
+/*preset positioning for sliding doors buttons (four way style)*/
+.jist-control-wrapper {
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+.jist-control-item {
+	background-repeat: repeat-x;
+	background-position: left bottom;
+}
+.jist-control {
+	background-repeat: repeat-y;
+	background-position: left top;
+}
+.jist-control-input,.jist-control-text {
+	background-repeat: repeat-y;
+	background-position: right top;
 }
 
 
