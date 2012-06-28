@@ -12,6 +12,9 @@
 .jist-control-list.jist-vertical .jist-control-list-item {
 	clear:both;
 }
+.jist-control-wrapper {
+	float:left;
+}
 .jist-control-state-flag {/*use render off screen for state by default for buttons etc (background-images used instead for aesthetics)- menus will be different*/
 	position: absolute;
 	margin-left: -1000em;
@@ -25,10 +28,14 @@
 	padding: 0; 
 	margin: 0;
 }
+
+.jist-control-item { /*fixes IE6/7 lineheight inconsistencies*/
+	*line-height: 1.5em;
+}
 /*remove default padding and margins on IE controls*/
 * html a.jist-control-item {
 	display: block;
-	padding: 0.25ex 0ex 0.25ex 0ex; /*horrible little IE box model fix, TODO (try and eradicate this (yeah right)*/
+
 }
 * html button.jist-control,
 * html input.jist-control-input{
@@ -41,12 +48,15 @@
 	overflow: visible;
 }
 .jist-control-list button.jist-active{
-        position: relative;
-        left: -1px;
-        top: -1px;
+	position: relative;
+	left: -1px;
+	top: -1px;
 }
 /* end IE*/
 
+.jist-control-text {
+ white-space: nowrap;
+}
 .jist-control-item,
 .jist-control-item:active,
 .jist-control-item:visited,
