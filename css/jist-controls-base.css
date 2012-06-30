@@ -23,12 +23,10 @@
 .jist-control {
 	display: block;
 	float: left;
+	height: 1.1em; /*we need explicit heights for IE6/7 only really but with images etc I suspect that's not going to be uncommon*/
 	
 }
-* html button.jist-control,
-* html input.jist-control-input {
-	height: 1.1em; /* sadly for ie6/7 we need to set an explicit height to remove vertical padding */
-}
+
 
 .jist-control-state-flag {/*use render off screen for state by default for buttons etc (background-images used instead for aesthetics)- menus will be different*/
 	position: absolute;
