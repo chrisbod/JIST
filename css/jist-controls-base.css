@@ -1,26 +1,27 @@
- .jist-control-list {
+.jist-control-list {
 	margin: 0;
 	padding: 0;
+	display: block;
 }
-.jist-control-list-item  {
+.jist-control-list .control-item  {
 	float: left;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	display: block;
 }
 /*for vertical toolbars*/
-.jist-vertical .jist-control-list-item {
+.jist-vertical .control-item  {
 	clear:both;
 }
-.jist-control-wrapper {
-	position: relative;
-
-}
-.jist-control-wrapper,
-.jist-control-item,
-.jist-control-text,
-.jist-control-input,
 .jist-control {
+	position: relative;
+}
+.jist-control,
+.jist-control .item,
+.jist-control .text,
+.jist-control .input,
+.jist-control .control {
 	display: block;
 	float: left;
 	height: 1.1em; /*we need explicit heights for IE6/7 only really but with images etc I suspect that's not going to be uncommon*/
@@ -28,13 +29,13 @@
 }
 
 
-.jist-control-state-flag {/*use render off screen for state by default for buttons etc (background-images used instead for aesthetics)- menus will be different*/
+.jist-control .state-flag {/*use render off screen for state by default for buttons etc (background-images used instead for aesthetics)- menus will be different*/
 	position: absolute;
 	margin-left: -1000em;
 	/*TODO: set this margin to 0 in ie6/7 no js*/
 }
-.jist-control,
-.jist-control *{ /*this removes the default styling for buttons and inputs and does a bit of 'normalisation'*/
+.jist-control .control,
+.jist-control .control *{ /*this removes the default styling for buttons and inputs and does a bit of 'normalisation'*/
 	background-color: transparent;
 	border-width: 0;
 	text-align: center;
@@ -42,66 +43,64 @@
 	margin: 0;
 }
 /*remove default padding and margins on IE controls*/
-* html span.jist-control-text {
+* html .jist-control span.text {
 	display: block;
 	
 }
-* html button.jist-control,
-* html input.jist-control-input{
+* html .jist-control button.control,
+* html .jist-control input.input{
 	width: 0;
 	overflow: visible;
 }
-*+html .jist-control,
-*+html .jist-control-input{
+*+html .jist-control .control,
+*+html .jist-control .input{
 	width: auto;
 	overflow: visible;
 }
 /* end IE*/
 
-.jist-control-text {
+.jist-control .text {
  white-space: nowrap;
 }
-.jist-control-item,
-.jist-control-item:active,
-.jist-control-item:visited,
-.jist-control-item:link,
-.jist-control-input,
-.jist-control
+.jist-control .item,
+.jist-control .item:active,
+.jist-control .item:visited,
+.jist-control .item:link,
+.jist-control .input,
+.jist-control .control
 {/*get rid of default anchor/button/input colors (and make them consistent (ish)*/
 	color: inherit;
     color: infotext;
 	text-decoration: none;
 }
-.jist-control-access-key {/*if you use accesskeys in ems get rid of the italic and stick the underline on*/
+.jist-control .access-key {/*if you use accesskeys in ems get rid of the italic and stick the underline on*/
 	text-decoration: underline;
 	font-style: normal;
 }
-a.jist-control-item,
-a.jist-control-item:active,
-a.jist-control-item:hover,
-a.jist-control-item:focus,
-.jist-control {/*remove dots wherever poss in anchors etc - no joy in old IEs of course (blur/focus javascript if you must)*/
+.jist-control a.item,
+.jist-control a.item:active,
+.jist-control a.item:hover,
+.jist-control a.item:focus,
+.jist-control .control {/*remove dots wherever poss in anchors etc - no joy in old IEs of course (blur/focus javascript if you must)*/
 	outline: 0;
 }
 /*preset positioning for sliding doors buttons (four way style)
-
+	NOTE: 4 way is incorrect will need to drop to three way + icon
 */
-.jist-control-wrapper {
+.jist-control {
 	background-repeat: repeat-x;
 	background-position: left top;
 }
-.jist-control-item {
+.jist-control .item {
 	background-repeat: repeat-x;
 	background-position: left bottom;
 }
-.jist-control {
+.jist-control .control {
 	background-repeat: repeat-y;
 	background-position: left top;
 }
-.jist-control-input,.jist-control-text {/*
+.jist-control .input,
+.jist-control .text {
 	background-repeat: repeat-y;
 	background-position: right top;
 }
-
-
-
