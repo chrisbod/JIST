@@ -9,55 +9,54 @@
 	padding: 0;
 }
 /*for vertical toolbars*/
-.jist-control-list.jist-vertical .jist-control-list-item {
+.jist-vertical .jist-control-list-item {
 	clear:both;
 }
 .jist-control-wrapper {
-	float:left;
 	position: relative;
-	display: block;
+
 }
-.jist-control-item,.jist-control-text,.jist-control {
+.jist-control-wrapper,
+.jist-control-item,
+.jist-control-text,
+.jist-control-input,
+.jist-control {
 	display: block;
 	float: left;
+	
 }
+* html button.jist-control,
+* html input.jist-control-input {
+	height: 1.1em; /* sadly for ie6/7 we need to set an explicit height to remove vertical padding */
+}
+
 .jist-control-state-flag {/*use render off screen for state by default for buttons etc (background-images used instead for aesthetics)- menus will be different*/
 	position: absolute;
 	margin-left: -1000em;
 	/*TODO: set this margin to 0 in ie6/7 no js*/
 }
 .jist-control,
-.jist-control-input { /*this removes the default styling for buttons and inputs and does a bit of 'normalisation'*/
+.jist-control *{ /*this removes the default styling for buttons and inputs and does a bit of 'normalisation'*/
 	background-color: transparent;
 	border-width: 0;
 	text-align: center;
 	padding: 0; 
 	margin: 0;
 }
-.jist-control-text {
-	padding: 0.1em 0.4em;
-}
-.jist-control-input {
-	padding: 0.1em 0.4em;
-}
-.jist-control-item { /*fixes IE6/7 lineheight inconsistencies*/
-	*line-height: 1.5em;
-}
 /*remove default padding and margins on IE controls*/
+* html span.jist-control-text {
+	display: block;
+	
+}
 * html button.jist-control,
 * html input.jist-control-input{
 	width: 0;
 	overflow: visible;
 }
-*+html button.jist-control,
-*+html input.jist-control-input{
+*+html .jist-control,
+*+html .jist-control-input{
 	width: auto;
 	overflow: visible;
-}
-.jist-control-list button.jist-active{
-	position: relative;
-	left: -1px;
-	top: -1px;
 }
 /* end IE*/
 
