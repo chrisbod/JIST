@@ -83,7 +83,9 @@ a.jist-control-item:focus,
 .jist-control {/*remove dots wherever poss in anchors etc - no joy in old IEs of course (blur/focus javascript if you must)*/
 	outline: 0;
 }
-/*preset positioning for sliding doors buttons (four way style)*/
+/*preset positioning for sliding doors buttons (four way style)
+
+*/
 .jist-control-wrapper {
 	background-repeat: repeat-x;
 	background-position: left top;
@@ -96,7 +98,7 @@ a.jist-control-item:focus,
 	background-repeat: repeat-y;
 	background-position: left top;
 }
-.jist-control-input,.jist-control-text {
+.jist-control-input,.jist-control-text {/*
 	background-repeat: repeat-y;
 	background-position: right top;
 }
