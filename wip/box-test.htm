@@ -4,14 +4,17 @@
 		<title>Box/Text sizing test</title>
 		<script>
 		function QuickBox(width,height) {
-			this.width = width || 0;
-			this.height = height || 0;
+			this.width = width || -1;
+			this.height = height || -1;
 		}
 		QuickBox.prototype = {
-			width: 0,
-			height: 0,
+			width: -1,
+			height: -1,
 			equals: function (box){
 				//be forgiving!
+				if (this.width<0 || this.height <0 || box.width < 0 || box.height < 0) {
+					throw new Error("Invalid/unitialized box used in equals comparison")
+				}
 				return Math.round(this.width)==Math.round(box.width) && Math.round(this.height) == Math.round(box.height);
 			},
 			toString: function () {
@@ -43,8 +46,18 @@
 			}
 		}
 		var x = new BoxModelInspector(),
-			y = new BoxModelInspector();
-		alert(x.getPaddingBox().equals(y.getPaddingBox()))
+			y = new BoxModelInspector(),
+			equals,
+			ok = false;
+			try {
+				equals = x.getPaddingBox().equals(y.getPaddingBox())
+			} catch (e) {
+				ok = true;
+			}
+			if (!ok) {
+				alert("test failed")
+				throw new Error("test failed")
+			}
 		
 		
 		</script>
