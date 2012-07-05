@@ -3,11 +3,13 @@
 	<head>
 	<link rel="stylesheet" href="../lib/normalize.css" type="text/css">
 	<link rel="stylesheet" href="../css/jist-controls-base.css" type="text/css">
+
 	</head>
+	
 	<body>
 		<h1>Raw controls - no padding margin etc</h1>
 		<ul class="jist-control-list jist-vertical">
-        <li class="control-item">
+        <li class="control-list-item">
             <span class="jist-control">
                 <a class="item" title="{full description of behaviour}" href="#">
                     <span class="control">
@@ -20,7 +22,7 @@
              </span>
         </li>
 		
-        <li class="control-item">
+        <li class="control-list-item">
             <span class="jist-control">
                 <label class="item" title="{full description of behaviour}">
                     <button class="control">
@@ -32,7 +34,7 @@
                 </label>
             </span>
         </li>
-		 <li class="control-item">
+		 <li class="control-list-item">
             <span class="jist-control">
                 <label class="item" title="{full description of behaviour}">
                     <span class="control">
@@ -41,7 +43,7 @@
                 </label>
             </span>
         </li>
-        <li class="control-item">
+        <li class="control-list-item">
             <span class="jist-control">
                 <input type="checkbox" id="dummy-checkbox" name="optional" class="state-flag">
                 <label class="item" title="{full description of behaviour}" for="dummy-checkbox">
@@ -58,7 +60,7 @@
 	<div>
 	<h2 style="float: left; clear:both">standard horizontal float</h2>
     <ul class="jist-control-list">     
-        <li class="control-item">
+        <li class="control-list-item">
             <span class="jist-control">
                 <label class="item" title="{full description of behaviour}">
                     <button class="control">
@@ -70,7 +72,7 @@
                 </label>
             </span>
         </li>
-        <li class="control-item">
+        <li class="control-list-item">
             <span class="jist-control">
                 <input type="checkbox" id="dummy-checkbox" name="optional" class="state-flag">
                 <label class="item" title="{full description of behaviour}" for="dummy-checkbox">
@@ -83,7 +85,7 @@
                 </label>
             </span>
         </li>
-		<li class="control-item">
+		<li class="control-list-item">
             <span class="jist-control">
                 <a class="item" title="{full description of behaviour}" href="#">
                     <span class="control">
@@ -95,7 +97,7 @@
                 </a>
             </span>
         </li>
-		<li class="control-item">
+		<li class="control-list-item">
             <span class="jist-control">
                 <span class="item" title="{full description of behaviour}" href="#">
                     <span class="control">
@@ -107,7 +109,7 @@
                 </span>
             </span>
         </li>
-        <li class="control-item">
+        <li class="control-list-item">
             <span class="jist-control">
                 <label class="item" title="{full description of behaviour}">
                     <span class="control">
@@ -116,8 +118,18 @@
                 </label>
             </span>
         </li>
-		<li class="control-item">
+		<li class="">
+			
+		
+		
+		</li>
+		<!--
+		{type:"Jist.Control"tag:"input|button|a|label",text:"text",title:"{full description of behaviour}",class:"class-name",checkbox:true,radio:true,accessKey:"A",keyboardShortcut:"",id:"",name:"",action:"",disabled:false}
+		-->
+		
+		<li class="control-list-item">
             <span class="jist-control">
+				<script type="application/x-jist"></script>
                 <input type="checkbox" id="dummy-checkbox" name="optional" class="state-flag">
                 <label class="item" title="{full description of behaviour}" for="dummy-checkbox">
                     <button class="control">
@@ -129,7 +141,33 @@
             </span>
         </li>
     </ul>  
-	
+	<script>	
+		function jist(element) {
+			var scripts = (element || document.body || document).getElementsByTagName("script"),
+				l = scripts.length,
+				i,
+				scriptsForRemoval = [];
+
+			for (i=0;i!= l;i++) {
+				if (scripts[i].type == "application/x-jist") {
+					//do whatever;
+					scriptsForRemoval.push(scripts[i])
+				}
+				
+			}
+			//we do all our dom manipulation in reverse order at the end of the call
+			for (i=0,l=scriptsForRemoval.length,scriptsForRemoval.reverse();i!=l;i++) {
+				scriptsForRemoval[i].parentNode.removeChild(scriptsForRemoval[i])
+			}
+		}
+		jist()
+		onload = function () {
+			document.all[document.all.length-2].innerHTML = 's<scr\ipt type=\"application/x-jist\"></scri\pt>';
+			alert(document.body.all.tags("script")[0].outerHTML)
+			jist()
+			alert(document.body.all.tags("script").length)
+		}
+	</script>
 	</body>
 </html>
 

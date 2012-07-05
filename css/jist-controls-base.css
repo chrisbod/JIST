@@ -2,8 +2,9 @@
 	margin: 0;
 	padding: 0;
 	display: block;
+	list-style-type: none;
 }
-.jist-control-list .control-item  {
+.jist-control-list .control-list-item  {
 	float: left;
 	list-style-type: none;
 	margin: 0;
@@ -11,7 +12,7 @@
 	display: block;
 }
 /*for vertical toolbars*/
-.jist-vertical .control-item  {
+.jist-vertical .control-list-item  {
 	clear:both;
 }
 .jist-control {
@@ -24,7 +25,7 @@
 .jist-control .control {
 	display: block;
 	float: left;
-	height: 1.1em; /*we need explicit heights for IE6/7 only really but with images etc I suspect that's not going to be uncommon*/
+	height: 1.2em; /*height is explicit - inpart for IE and in part to unify select elements size etc*/
 	
 }
 

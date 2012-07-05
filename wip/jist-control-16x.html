@@ -4,6 +4,9 @@
 	<link rel="stylesheet" href="../lib/normalize.css" type="text/css">
 	<link rel="stylesheet" href="../css/jist-controls-base.css" type="text/css">
 	<style type="text/css">
+	body {
+		color: red;
+	}	
 		.jist-16x .jist-control{
 			border: 1px solid red;
 			margin: 1px;
@@ -30,8 +33,8 @@
 	</head>
 	<body class="jist-16x">
 		<h1>Raw controls - no padding margin etc</h1>
-		<ul class="list jist-vertical">
-        <li class="control-item">
+		<ul class="jist-control-list jist-vertical">
+        <li class="control-list-item">
             <span class="jist-control">
                 <a class="item" title="{full description of behaviour}" href="#">
                     <span class="control">
@@ -43,7 +46,7 @@
                 </a>
              </span>
         </li>
-        <li class="control-item">
+        <li class="control-list-item">
             <span class="jist-control">
                 <label class="item" title="{full description of behaviour}">
                     <button class="control">
@@ -55,7 +58,7 @@
                 </label>
             </span>
         </li>
-		 <li class="control-item">
+		 <li class="control-list-item">
             <span class="jist-control">
                 <label class="item" title="{full description of behaviour}">
                     <span class="control">
@@ -64,7 +67,7 @@
                 </label>
             </span>
         </li>
-        <li class="control-item">
+        <li class="control-list-item">
             <span class="jist-control">
                 <input type="checkbox" id="dummy-checkbox" name="optional" class="state-flag">
                 <label class="item" title="{full description of behaviour}" for="dummy-checkbox">
@@ -79,8 +82,8 @@
        
     </ul>	
 	<div style="clear:both; float: left">
-    <ul class="list">
-        <li class="control-item">
+    <ul class="jist-control-list">
+        <li class="control-list-item">
             <span class="jist-control">
                 <label class="item" title="{full description of behaviour}">
                     <button class="control">
@@ -92,7 +95,7 @@
                 </label>
             </span>
         </li>
-        <li class="control-item">
+        <li class="control-list-item">
             <span class="jist-control">
                 <input type="checkbox" id="dummy-checkbox" name="optional" class="state-flag">
                 <label class="item" title="{full description of behaviour}" for="dummy-checkbox">
@@ -106,7 +109,7 @@
             </span>
         </li>
 		
-		<li class="control-item">
+		<li class="control-list-item">
             <span class="jist-control">
                 <a class="item" title="{full description of behaviour}" href="#">
                     <span class="control">
@@ -118,7 +121,7 @@
                 </a>
             </span>
         </li>
-        <li class="control-item">
+        <li class="control-list-item">
             <span class="jist-control">
                 <label class="item" title="{full description of behaviour}">
                     <span class="control">
@@ -127,7 +130,7 @@
                 </label>
             </span>
         </li>
-		<li class="control-item">
+		<!--li class="control-list-item">
             <span class="jist-control">
                 <input type="checkbox" id="dummy-checkbox" name="optional" class="state-flag">
                 <label class="item" title="{full description of behaviour}" for="dummy-checkbox">
@@ -138,9 +141,47 @@
                     </button>
                 </label>
             </span>
+        </li-->
+		<li class="control-list-item">
+            <span class="jist-control jist-control-text">
+                <label class="item" title="{full description of behaviour}">
+                    <span class="control">
+                    <input class="text" type="text" value="this is a text box...">
+                    </span>
+                </label>
+            </span>
+        </li>
+		<li class="control-list-item">
+            <span class="jist-control jist-control-select">
+                <label class="item" title="{full description of behaviour}">
+                    <span class="control" style="position:absolute; margin-top: -2px; clip: rect(2px 1.5em 1.2em 2px)">
+                    <select class="text" size="1" style=" background-color: transparent" >
+						<option>foo</option>
+						<option>zoo</option>
+					</select>
+                    </span>
+                </label>
+            </span>
         </li>
     </ul>  
+	<style>
+		div *{
+		layout-flow: horizontal;
+		}
+	</style>
+	<script>
+		var rS = document.body.currentStyle;
+		//alert(rS.)
+		for(var i in rS) {
+			try {
+			document.write(i+":"+rS[i]+'<br>')
+			}
+			catch (e) {
+			
+			}
+		}
 	
+	</script>
 	</body>
 </html>
 
