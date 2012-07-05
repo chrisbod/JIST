@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Box/Text sizing test</title>
+		<script>
+		function QuickBox(width,height) {
+			this.width = width || 0;
+			this.height = height || 0;
+		}
+		QuickBox.prototype = {
+			width: 0,
+			height: 0,
+			equals: function (box){
+				//be forgiving!
+				return Math.round(this.width)==Math.round(box.width) && Math.round(this.height) == Math.round(box.height);
+			},
+			toString: function () {
+				return Math.round(this.width)+" "+Math.round(this.height);
+			}
+		}
+		function BoxModelInspector(element) {
+			this.element = element;
+		}
+		BoxModelInspector.prototype = {
+			element: null,
+			getMarginBox: function () {
+				return new QuickBox();
+			},
+			getBorderBox: function () {
+				return new QuickBox();
+			},
+			getPaddingBox: function () {
+				return new QuickBox();
+			},
+			getContentBox: function () {
+				return new QuickBox();
+			},
+			getScrollBox: function () {
+				return new QuickBox();
+			},
+			getOffsetBox: function () {
+				return new QuickBox();
+			}
+		}
+		var x = new BoxModelInspector(),
+			y = new BoxModelInspector();
+		alert(x.getPaddingBox().equals(y.getPaddingBox()))
+		
+		
+		</script>
+	</head>
+	
+	<body>
+	
+	
+	
+	</body>
+
+
+</html>
+
+
+
