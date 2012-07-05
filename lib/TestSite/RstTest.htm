@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Testing Really Simple Testing for JavaScript</title>
+    <script type="text/javascript" src="Script/RST.js"></script>
+</head>
+<body></body>
+<script type="text/javascript">
+    test({
+        simpleAssert: function() {
+            test.assert(1 + 1 === 2, "Wow, you must have be a real JavaScript guru to be able to do that.");
+        },
+        failAssert: function() {
+            try {
+                test.assert(1 + 1 === 3, "FAIL");
+            }
+            catch (ex) {
+                test.assert(ex.message === "FAIL", "Failed to fail.");
+            }
+        },
+        testResults: function() {
+            var testResults = test({
+                success: function() { },
+                failure: function() { throw new Error("failure"); }
+            }, {});
+            test.assert(testResults.success === null, "Success should give a null entry in the results.");
+            test.assert(testResults.failure.message === "failure", "Failure should store the exception in results.");
+        }
+    });
+</script>
+</html>
